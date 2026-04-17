@@ -1,95 +1,69 @@
 # UserScripts
 
-このリポジトリは、ブラウザに小さな便利機能を追加する **UserScript** を置く場所です。
+このリポジトリは、ブラウザに小さな便利機能を追加する **UserScript** を配布する場所です。
 
-UserScript は、特定のWebサイトを開いたときだけ動く小さなJavaScriptです。たとえば「ページに集計ボタンを追加する」「特定URLを自動で別URLへ移動する」といったことができます。
+Tampermonkey をブラウザ拡張として入れておけば、`.user.js` の raw URL を開くだけでインストールできます。コードを手でコピーして貼り付ける必要はありません。
 
-この README では、初めての人でも Tampermonkey に UserScript を入れられるように、セットアップ手順だけを説明します。
+## スクリプト一覧
 
-## 入っているスクリプト
+| スクリプト | できること | 対象サイト | インストール |
+| --- | --- | --- | --- |
+| ノイミー盤 History Sheets | Chara-Ani の申込履歴を集計し、Google スプレッドシートに貼り付けやすい TSV をコピーできるようにします。 | `not-equal-me.chara-ani.com` / `*.chara-ani.com` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/chara-ani-sheets.user.js) |
+| ≠ME Mobile Host Redirect | `sp.not-equal-me.jp` を開いたとき、自動で `not-equal-me.jp` へ移動します。 | `sp.not-equal-me.jp` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/not-equal-me-redirect.user.js) |
 
-| ファイル | できること | 対象サイト |
-| --- | --- | --- |
-| `scripts/chara-ani-sheets.user.js` | Chara-Ani の申込履歴を集計し、Google スプレッドシートに貼り付けやすい TSV をコピーできるようにします。 | `not-equal-me.chara-ani.com` / `*.chara-ani.com` |
-| `scripts/not-equal-me-redirect.user.js` | `sp.not-equal-me.jp` を開いたとき、自動で `not-equal-me.jp` へ移動します。 | `sp.not-equal-me.jp` |
+## インストール方法
 
-## Tampermonkey とは
+### 1. Tampermonkey を入れる
 
-Tampermonkey は、UserScript をブラウザで動かすための拡張機能です。
+次の公式サイトから、使っているブラウザに Tampermonkey をインストールします。
 
-ブラウザに Tampermonkey を入れると、自分で登録した `.user.js` ファイルが、指定されたサイトを開いたときだけ自動で動きます。
-
-> 注意: UserScript はブラウザ上で動くコードです。中身がわからないスクリプトや、信頼できない配布元のスクリプトは入れないでください。
-
-## 事前準備
-
-### 1. Tampermonkey をインストールする
-
-次の公式サイトを開き、使っているブラウザに Tampermonkey を入れます。
-
-```text
 https://www.tampermonkey.net/
-```
 
-Chrome / Edge / Firefox など、ブラウザごとに案内があります。
+Chrome / Edge / Firefox など、ブラウザごとの案内に従ってください。
 
-### 2. Chrome で「ユーザー スクリプトを許可する」を ON にする
+### 2. Chrome 系ブラウザの場合だけ、ユーザー スクリプトを許可する
 
-Chrome 系ブラウザでは、追加の許可が必要なことがあります。
+Chrome / Edge などでは、追加の許可が必要なことがあります。
 
 1. ブラウザの拡張機能一覧を開きます。
 2. Tampermonkey の「詳細」を開きます。
 3. `ユーザー スクリプトを許可する` を ON にします。
 
-この設定が OFF のままだと、Tampermonkey に保存してもスクリプトが動かない場合があります。
+この設定が OFF のままだと、Tampermonkey にスクリプトを入れても動かない場合があります。
 
-## UserScript の入れ方
+### 3. 使いたいスクリプトの raw URL を開く
 
-以下は、`.user.js` ファイルの中身を Tampermonkey に貼り付けて保存する方法です。
+上の「スクリプト一覧」にある `インストール` リンクを開きます。
 
-### 1. 使いたい `.user.js` ファイルを開く
+Tampermonkey が反応すると、スクリプトのインストール確認画面が開きます。内容を確認して `インストール` を押してください。
 
-このリポジトリの `scripts/` にある、使いたいファイルを開きます。
+両方のスクリプトを使う場合は、それぞれの `インストール` リンクを開いて同じ手順で入れます。
 
-```text
-scripts/chara-ani-sheets.user.js
-scripts/not-equal-me-redirect.user.js
-```
+## 更新方法
 
-両方使う場合は、2つとも同じ手順で登録します。
+通常は何もしなくて大丈夫です。
 
-### 2. ファイルの中身をすべてコピーする
+この README の `インストール` リンクから入れたスクリプトは、Tampermonkey 側の更新チェックで自動的に最新版へ更新されます。
 
-ファイルを開いたら、内容を最初から最後まで全部コピーします。
+すぐに最新版へしたい場合だけ、Tampermonkey のダッシュボードから更新チェックを実行してください。反映されない場合は、同じ `インストール` リンクをもう一度開くと更新確認画面を出せます。
 
-`// ==UserScript==` から始まる部分も必要です。消さずにコピーしてください。
-
-### 3. Tampermonkey で新しいスクリプトを作る
-
-1. ブラウザ右上の Tampermonkey アイコンを押します。
-2. `ダッシュボード` を開きます。
-3. `+` ボタン、または `新規スクリプト` を押します。
-4. 最初から入っているサンプルコードを全部消します。
-5. コピーした `.user.js` の中身を貼り付けます。
-6. 保存します。
-
-保存後、Tampermonkey の一覧でスクリプトが ON になっていれば準備完了です。
-
-## 更新するとき
-
-スクリプトの中身が更新された場合は、Tampermonkey に保存している古い内容を新しい内容で置き換えます。
-
-1. 新しい `.user.js` ファイルの中身を全部コピーします。
-2. Tampermonkey のダッシュボードで対象スクリプトを開きます。
-3. 古い内容を全部消します。
-4. 新しい内容を貼り付けます。
-5. 保存します。
+以前の README に従ってコードをコピーして入れた場合は、自動更新用の URL が登録されていないことがあります。その場合は、上の `インストール` リンクから一度入れ直してください。
 
 ## 困ったとき
+
+### インストール画面が開かない
+
+- Tampermonkey がブラウザに入っているか確認してください。
+- Tampermonkey が無効化されていないか確認してください。
+- raw URL を直接開いているか確認してください。GitHub の通常表示ページではなく、URL に `/raw/` が入っているリンクを使います。
 
 ### スクリプトが動かない
 
 - Tampermonkey のスクリプト一覧で、対象スクリプトが ON になっているか確認してください。
 - Chrome 系ブラウザの場合、拡張機能詳細の `ユーザー スクリプトを許可する` が ON か確認してください。
-- 対象サイトのURLが、スクリプトの対象サイトと合っているか確認してください。
+- 開いているサイトの URL が、スクリプトの対象サイトと合っているか確認してください。
 - ページを再読み込みしてください。
+
+## 注意
+
+UserScript はブラウザ上で動くコードです。中身がわからないスクリプトや、信頼できない配布元のスクリプトは入れないでください。

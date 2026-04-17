@@ -1,7 +1,9 @@
 // ==UserScript==
 // @name         ノイミー盤 History Sheets
 // @namespace    https://github.com/inoji-high-school/user-scripts
-// @version      0.1.0
+// @version      0.1.1
+// @downloadURL  https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/chara-ani-sheets.user.js
+// @updateURL    https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/chara-ani-sheets.user.js
 // @description  Chara-Ani申込履歴を自動集計し、Google Sheets貼り付け用TSVを1クリックでコピーする
 // @match        https://not-equal-me.chara-ani.com/*
 // @match        http://not-equal-me.chara-ani.com/*
@@ -1114,4 +1116,3 @@
     }
   });
 })();
-
