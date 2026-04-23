@@ -10,6 +10,8 @@ Tampermonkey をブラウザ拡張として入れておけば、`.user.js` の r
 | --- | --- | --- | --- |
 | ノイミー盤 History Sheets | Chara-Ani の申込履歴を集計し、Google スプレッドシートに貼り付けやすい TSV をコピーできるようにします。 | `not-equal-me.chara-ani.com` / `*.chara-ani.com` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/chara-ani-sheets.user.js) |
 | ≠ME Mobile Host Redirect | `sp.not-equal-me.jp` を開いたとき、自動で `not-equal-me.jp` へ移動します。 | `sp.not-equal-me.jp` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/not-equal-me-redirect.user.js) |
+| =LOVE Mobile Host Redirect | `sp.equal-love.jp` を開いたとき、自動で `equal-love.jp` へ移動します。 | `sp.equal-love.jp` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/equal-love-redirect.user.js) |
+| ≒JOY Mobile Host Redirect | `sp.nearly-equal-joy.jp` を開いたとき、自動で `nearly-equal-joy.jp` へ移動します。 | `sp.nearly-equal-joy.jp` | [インストール](https://github.com/inoji-high-school/user-scripts/raw/refs/heads/main/scripts/nearly-equal-joy-redirect.user.js) |
 
 ## インストール方法
 
@@ -37,7 +39,7 @@ Chrome / Edge などでは、追加の許可が必要なことがあります。
 
 Tampermonkey が反応すると、スクリプトのインストール確認画面が開きます。内容を確認して `インストール` を押してください。
 
-両方のスクリプトを使う場合は、それぞれの `インストール` リンクを開いて同じ手順で入れます。
+複数のスクリプトを使う場合は、それぞれの `インストール` リンクを開いて同じ手順で入れます。
 
 ## 更新方法
 
